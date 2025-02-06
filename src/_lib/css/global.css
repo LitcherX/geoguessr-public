@@ -1,0 +1,370 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.radio-input input[type="radio"] {
+    @apply hidden;
+}
+
+.radio-input input[type="radio"]:checked + label:before {
+    @apply bg-primary border-primary top-0;
+}
+
+.radio-input input[type="radio"]:checked + label {
+    @apply bg-primary-50 text-white animate-[radio-translate_0.5s_ease-in-out] border-primary;
+}
+
+@keyframes radio-translate {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+a {
+    color: var(--link);
+    opacity: 0.7;
+}
+
+a:hover {
+    color: var(--link);
+    opacity: 1;
+}
+
+:root {
+    --text-light: rgba(2, 2, 13, 1);
+    --background-light: rgba(242, 242, 253, 1);
+    --primary-light: rgba(51, 57, 219, 1);
+    --secondary-light: rgba(234, 144, 229, 1);
+    --accent-light: rgba(226, 90, 169, 1);
+
+    --link-light: rgb(0, 195, 255);
+    --background-code-light: rgba(246, 248, 250, 1);
+
+    --text-dark: rgba(242, 242, 253, 1);
+    --background-dark: rgba(2, 2, 13, 1);
+    --primary-dark: rgba(36, 42, 204, 1);
+    --secondary-dark: rgba(111, 21, 107, 1);
+    --accent-dark: rgba(165, 29, 108, 1);
+
+    --link-dark: rgb(0, 132, 255);
+    --background-code-dark: rgba(40, 44, 52, 1);
+
+    /* Background Light Variations */
+    --background-light-10: rgba(242, 242, 253, 0.1);
+    --background-light-20: rgba(242, 242, 253, 0.2);
+    --background-light-30: rgba(242, 242, 253, 0.3);
+    --background-light-40: rgba(242, 242, 253, 0.4);
+    --background-light-50: rgba(242, 242, 253, 0.5);
+    --background-light-60: rgba(242, 242, 253, 0.6);
+    --background-light-70: rgba(242, 242, 253, 0.7);
+    --background-light-80: rgba(242, 242, 253, 0.8);
+    --background-light-90: rgba(242, 242, 253, 0.9);
+
+    /* Background Dark Variations */
+    --background-dark-10: rgba(2, 2, 13, 0.1);
+    --background-dark-20: rgba(2, 2, 13, 0.2);
+    --background-dark-30: rgba(2, 2, 13, 0.3);
+    --background-dark-40: rgba(2, 2, 13, 0.4);
+    --background-dark-50: rgba(2, 2, 13, 0.5);
+    --background-dark-60: rgba(2, 2, 13, 0.6);
+    --background-dark-70: rgba(2, 2, 13, 0.7);
+    --background-dark-80: rgba(2, 2, 13, 0.8);
+    --background-dark-90: rgba(2, 2, 13, 0.9);
+
+    /* Primary Light Variations */
+    --primary-light-10: rgba(51, 57, 219, 0.1);
+    --primary-light-20: rgba(51, 57, 219, 0.2);
+    --primary-light-30: rgba(51, 57, 219, 0.3);
+    --primary-light-40: rgba(51, 57, 219, 0.4);
+    --primary-light-50: rgba(51, 57, 219, 0.5);
+    --primary-light-60: rgba(51, 57, 219, 0.6);
+    --primary-light-70: rgba(51, 57, 219, 0.7);
+    --primary-light-80: rgba(51, 57, 219, 0.8);
+    --primary-light-90: rgba(51, 57, 219, 0.9);
+
+    /* Primary Dark Variations */
+    --primary-dark-10: rgba(36, 42, 204, 0.1);
+    --primary-dark-20: rgba(36, 42, 204, 0.2);
+    --primary-dark-30: rgba(36, 42, 204, 0.3);
+    --primary-dark-40: rgba(36, 42, 204, 0.4);
+    --primary-dark-50: rgba(36, 42, 204, 0.5);
+    --primary-dark-60: rgba(36, 42, 204, 0.6);
+    --primary-dark-70: rgba(36, 42, 204, 0.7);
+    --primary-dark-80: rgba(36, 42, 204, 0.8);
+    --primary-dark-90: rgba(36, 42, 204, 0.9);
+
+    /* Secondary Light Variations */
+    --secondary-light-10: rgba(234, 144, 229, 0.1);
+    --secondary-light-20: rgba(234, 144, 229, 0.2);
+    --secondary-light-30: rgba(234, 144, 229, 0.3);
+    --secondary-light-40: rgba(234, 144, 229, 0.4);
+    --secondary-light-50: rgba(234, 144, 229, 0.5);
+    --secondary-light-60: rgba(234, 144, 229, 0.6);
+    --secondary-light-70: rgba(234, 144, 229, 0.7);
+    --secondary-light-80: rgba(234, 144, 229, 0.8);
+    --secondary-light-90: rgba(234, 144, 229, 0.9);
+
+    /* Secondary Dark Variations */
+    --secondary-dark-10: rgba(111, 21, 107, 0.1);
+    --secondary-dark-20: rgba(111, 21, 107, 0.2);
+    --secondary-dark-30: rgba(111, 21, 107, 0.3);
+    --secondary-dark-40: rgba(111, 21, 107, 0.4);
+    --secondary-dark-50: rgba(111, 21, 107, 0.5);
+    --secondary-dark-60: rgba(111, 21, 107, 0.6);
+    --secondary-dark-70: rgba(111, 21, 107, 0.7);
+    --secondary-dark-80: rgba(111, 21, 107, 0.8);
+    --secondary-dark-90: rgba(111, 21, 107, 0.9);
+
+    /* Text Light Variations */
+    --text-light-10: rgba(2, 2, 13, 0.1);
+    --text-light-20: rgba(2, 2, 13, 0.2);
+    --text-light-30: rgba(2, 2, 13, 0.3);
+    --text-light-40: rgba(2, 2, 13, 0.4);
+    --text-light-50: rgba(2, 2, 13, 0.5);
+    --text-light-60: rgba(2, 2, 13, 0.6);
+    --text-light-70: rgba(2, 2, 13, 0.7);
+    --text-light-80: rgba(2, 2, 13, 0.8);
+    --text-light-90: rgba(2, 2, 13, 0.9);
+
+    /* Text Dark Variations */
+    --text-dark-10: rgba(242, 242, 253, 0.1);
+    --text-dark-20: rgba(242, 242, 253, 0.2);
+    --text-dark-30: rgba(242, 242, 253, 0.3);
+    --text-dark-40: rgba(242, 242, 253, 0.4);
+    --text-dark-50: rgba(242, 242, 253, 0.5);
+    --text-dark-60: rgba(242, 242, 253, 0.6);
+    --text-dark-70: rgba(242, 242, 253, 0.7);
+    --text-dark-80: rgba(242, 242, 253, 0.8);
+    --text-dark-90: rgba(242, 242, 253, 0.9);
+
+    /* Accent Light Variations */
+    --accent-light-10: rgba(226, 90, 169, 0.1);
+    --accent-light-20: rgba(226, 90, 169, 0.2);
+    --accent-light-30: rgba(226, 90, 169, 0.3);
+    --accent-light-40: rgba(226, 90, 169, 0.4);
+    --accent-light-50: rgba(226, 90, 169, 0.5);
+    --accent-light-60: rgba(226, 90, 169, 0.6);
+    --accent-light-70: rgba(226, 90, 169, 0.7);
+    --accent-light-80: rgba(226, 90, 169, 0.8);
+    --accent-light-90: rgba(226, 90, 169, 0.9);
+
+    /* Accent Dark Variations */
+    --accent-dark-10: rgba(165, 29, 108, 0.1);
+    --accent-dark-20: rgba(165, 29, 108, 0.2);
+    --accent-dark-30: rgba(165, 29, 108, 0.3);
+    --accent-dark-40: rgba(165, 29, 108, 0.4);
+    --accent-dark-50: rgba(165, 29, 108, 0.5);
+    --accent-dark-60: rgba(165, 29, 108, 0.6);
+    --accent-dark-70: rgba(165, 29, 108, 0.7);
+    --accent-dark-80: rgba(165, 29, 108, 0.8);
+    --accent-dark-90: rgba(165, 29, 108, 0.9);
+}
+
+html.dark {
+    --link: var(--link-dark);
+    --background-code: var(--background-code-dark);
+
+    /* Background Variations */
+    --background: var(--background-dark);
+    --background-10: var(--background-dark-10);
+    --background-20: var(--background-dark-20);
+    --background-30: var(--background-dark-30);
+    --background-40: var(--background-dark-40);
+    --background-50: var(--background-dark-50);
+    --background-60: var(--background-dark-60);
+    --background-70: var(--background-dark-70);
+    --background-80: var(--background-dark-80);
+    --background-90: var(--background-dark-90);
+
+    /* Primary Variations */
+    --primary: var(--primary-dark);
+    --primary-10: var(--primary-dark-10);
+    --primary-20: var(--primary-dark-20);
+    --primary-30: var(--primary-dark-30);
+    --primary-40: var(--primary-dark-40);
+    --primary-50: var(--primary-dark-50);
+    --primary-60: var(--primary-dark-60);
+    --primary-70: var(--primary-dark-70);
+    --primary-80: var(--primary-dark-80);
+    --primary-90: var(--primary-dark-90);
+
+    /* Secondary Variations */
+    --secondary: var(--secondary-dark);
+    --secondary-10: var(--secondary-dark-10);
+    --secondary-20: var(--secondary-dark-20);
+    --secondary-30: var(--secondary-dark-30);
+    --secondary-40: var(--secondary-dark-40);
+    --secondary-50: var(--secondary-dark-50);
+    --secondary-60: var(--secondary-dark-60);
+    --secondary-70: var(--secondary-dark-70);
+    --secondary-80: var(--secondary-dark-80);
+    --secondary-90: var(--secondary-dark-90);
+
+    /* Text Variations */
+    --text: var(--text-dark);
+    --text-10: var(--text-dark-10);
+    --text-20: var(--text-dark-20);
+    --text-30: var(--text-dark-30);
+    --text-40: var(--text-dark-40);
+    --text-50: var(--text-dark-50);
+    --text-60: var(--text-dark-60);
+    --text-70: var(--text-dark-70);
+    --text-80: var(--text-dark-80);
+    --text-90: var(--text-dark-90);
+
+    /* Accent Variations */
+    --accent: var(--accent-dark);
+    --accent-10: var(--accent-dark-10);
+    --accent-20: var(--accent-dark-20);
+    --accent-30: var(--accent-dark-30);
+    --accent-40: var(--accent-dark-40);
+    --accent-50: var(--accent-dark-50);
+    --accent-60: var(--accent-dark-60);
+    --accent-70: var(--accent-dark-70);
+    --accent-80: var(--accent-dark-80);
+    --accent-90: var(--accent-dark-90);
+}
+
+html:not(.dark) {
+    --link: var(--link-light);
+    --background-code: var(--background-code-light);
+
+    /* Background Variations */
+    --background: var(--background-light);
+    --background-10: var(--background-light-10);
+    --background-20: var(--background-light-20);
+    --background-30: var(--background-light-30);
+    --background-40: var(--background-light-40);
+    --background-50: var(--background-light-50);
+    --background-60: var(--background-light-60);
+    --background-70: var(--background-light-70);
+    --background-80: var(--background-light-80);
+    --background-90: var(--background-light-90);
+
+    /* Primary Variations */
+    --primary: var(--primary-light);
+    --primary-10: var(--primary-light-10);
+    --primary-20: var(--primary-light-20);
+    --primary-30: var(--primary-light-30);
+    --primary-40: var(--primary-light-40);
+    --primary-50: var(--primary-light-50);
+    --primary-60: var(--primary-light-60);
+    --primary-70: var(--primary-light-70);
+    --primary-80: var(--primary-light-80);
+    --primary-90: var(--primary-light-90);
+
+    /* Secondary Variations */
+    --secondary: var(--secondary-light);
+    --secondary-10: var(--secondary-light-10);
+    --secondary-20: var(--secondary-light-20);
+    --secondary-30: var(--secondary-light-30);
+    --secondary-40: var(--secondary-light-40);
+    --secondary-50: var(--secondary-light-50);
+    --secondary-60: var(--secondary-light-60);
+    --secondary-70: var(--secondary-light-70);
+    --secondary-80: var(--secondary-light-80);
+    --secondary-90: var(--secondary-light-90);
+
+    /* Text Variations */
+    --text: var(--text-light);
+    --text-10: var(--text-light-10);
+    --text-20: var(--text-light-20);
+    --text-30: var(--text-light-30);
+    --text-40: var(--text-light-40);
+    --text-50: var(--text-light-50);
+    --text-60: var(--text-light-60);
+    --text-70: var(--text-light-70);
+    --text-80: var(--text-light-80);
+    --text-90: var(--text-light-90);
+
+    /* Accent Variations */
+    --accent: var(--accent-light);
+    --accent-10: var(--accent-light-10);
+    --accent-20: var(--accent-light-20);
+    --accent-30: var(--accent-light-30);
+    --accent-40: var(--accent-light-40);
+    --accent-50: var(--accent-light-50);
+    --accent-60: var(--accent-light-60);
+    --accent-70: var(--accent-light-70);
+    --accent-80: var(--accent-light-80);
+    --accent-90: var(--accent-light-90);
+}
+
+html {
+    overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Style for h2 */
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Style for h3 */
+h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* Style for h4 */
+h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Style for h5 */
+h5 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Style for h6 */
+h6 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.no-drag {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.noapperance input::-webkit-outer-spin-button,
+.noapperance input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.noapperance input[type="number"] {
+    -moz-appearance: textfield;
+}
