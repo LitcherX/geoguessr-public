@@ -146,7 +146,7 @@ export default async function handler(req, res) {
             let playsEver = Number(session.user.playsEver) + 1;
             let score = scoreEver / playsEver;
             const oldData = await prisma.leaderboard.findMany({
-                take: 50,
+                take: 10,
                 orderBy: {
                     rank: "asc",
                 },
@@ -161,7 +161,7 @@ export default async function handler(req, res) {
             });
             await updateBoard(prisma, session.user.id, score);
             const newData = await prisma.leaderboard.findMany({
-                take: 50,
+                take: 10,
                 orderBy: {
                     rank: "asc",
                 },
