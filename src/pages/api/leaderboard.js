@@ -3,9 +3,9 @@ import { verifyToken } from "@/_utils/jwt";
 import prisma from "@/_lib/database/prisma";
 import updateBoard from "@/_lib/functions/leaderboard";
 
-async function checkRanks(oldData, newData, bypass) {
+async function checkRanks(oldData, newData) {
     oldData.forEach((d, i) => {
-        if (newData[i].userId !== d.userId || bypass) {
+        if (newData[i].userId !== d.userId) {
             if (d.user.settings?.emailNotification) {
                 console.log("Email");
             } else if (d.user.settings?.discordNotification) {
@@ -166,7 +166,7 @@ export default async function handler(req, res) {
                     rank: "asc",
                 },
             });
-            await checkRanks(oldData, newData, true);
+            await checkRanks(oldData, newData);
             prisma.$disconnect();
             return res.status(200).json({
                 status: 200,
