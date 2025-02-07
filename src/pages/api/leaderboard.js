@@ -1,7 +1,7 @@
 import { auth } from "@/app/auth";
-import { verifyToken } from "@/_utils/jwt";
 import prisma from "@/_lib/database/prisma";
 import updateBoard from "@/_lib/functions/leaderboard";
+import { sendDiscordNotification } from "@/_lib/functions/notifications"; // Import the new utility function
 
 async function checkRanks(oldData, newData) {
     oldData.forEach((d, i) => {
@@ -9,90 +9,12 @@ async function checkRanks(oldData, newData) {
             if (d.user.settings?.emailNotification) {
                 console.log("Email");
             } else if (d.user.settings?.discordNotification) {
-                async function sendDiscordNotification(userId, message) {
-                    try {
-                        const dmChannelResponse = await fetch(
-                            `https://discord.com/api/v10/users/@me/channels`,
-                            {
-                                method: "POST",
-                                headers: {
-                                    Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify({ recipient_id: userId }),
-                            }
-                        );
-
-                        const dmChannel = await dmChannelResponse.json();
-
-                        if (!dmChannel.id) {
-                            console.error(
-                                "Failed to create DM channel:",
-                                dmChannel
-                            ); // Handle errors
-                            return;
-                        }
-
-                        const avatarImage = await fetch(d.user.image);
-
-                        const embed = {
-                            title: "Oh no, someone passed you",
-                            description: message,
-                            color: 0x8b0000,
-                            timestamp: new Date(),
-                            footer: {
-                                text: "If you wish to disable notifications, head to https://geoguess.gamrtag.xyz/me",
-                            },
-                            fields: [
-                                {
-                                    name: "New Rank",
-                                    value: `Your new rank is ${i + 1}`, // Replace X with the actual rank
-                                    inline: true,
-                                },
-                                {
-                                    name: "Previous Rank",
-                                    value: `Your previous rank was ${i}`, // Replace Y with the actual previous rank
-                                    inline: true,
-                                },
-                            ],
-                            thumbnail: {
-                                url:
-                                    avatarImage.status === 200
-                                        ? d.user.image
-                                        : "https://geoguess.gamrtag.xyz/images/placeholder.png",
-                            },
-                        };
-
-                        // 2. Send Message
-                        const messageResponse = await fetch(
-                            `https://discord.com/api/v10/channels/${dmChannel.id}/messages`,
-                            {
-                                method: "POST",
-                                headers: {
-                                    Authorization: `Bot ${process.env.DISCORD_BOT_TOKEN}`,
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify({
-                                    embeds: [embed],
-                                    contents: "New notification!",
-                                }),
-                            }
-                        );
-
-                        if (!messageResponse.ok) {
-                            const errorData = await messageResponse.json();
-                            console.error("Failed to send message:", errorData); // Handle errors
-                            return;
-                        }
-
-                        console.log("Notification sent!");
-                    } catch (error) {
-                        console.error("Error:", error);
-                    }
-                }
                 sendDiscordNotification(
                     d.user.accounts[0].providerAccountId,
-                    "Your notification!"
+                    "Your notification!",
+                    d.user.image,
+                    i + 1,
+                    i
                 );
             }
         }
