@@ -3,15 +3,15 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import Image from "next/image";
+import logo from "@public/images/logo.png";
 export default function Navbar({ menu, setMenu }) {
     return (
         <div className={`fixed pt-[30px] w-[1100px] ${menu ? "z-[100]" : ""}`}>
             <div className="w-full flex items-center justify-center max-h-screen max-w-[100vw] px-[15px]">
                 <div className=" min-[670px]:flex hidden max-w-[100vw] w-[1100px] py-[10px] h-[75px] px-[15px] items-center rounded-xl shadow-around shadow-text-20 bg-background-10 backdrop-blur-md">
-                    <div className="w-1/4 flex items-center">
-                        <p className="font-mono text-2xl font-black">
-                            GeoGuessr ERLC
-                        </p>
+                    <div className="w-1/4">
+                        <Image src={logo} alt="logo" width={200} />
                     </div>
                     <div className="w-2/4 flex items-center justify-evenly">
                         <Link
@@ -43,12 +43,10 @@ export default function Navbar({ menu, setMenu }) {
                     </div>
                 </div>
                 <div className=" min-[670px]:hidden max-w-[100vw] w-[1100px] flex py-[10px] h-[75px] px-[15px] rounded-xl shadow-around shadow-text-20 bg-background-10 backdrop-blur-md">
-                    <div className="w-2/4 flex items-center">
-                        <p className="font-mono text-2xl font-black">
-                            GeoGuessr ERLC
-                        </p>
+                    <div className="items-center h-[38px] absolute w-[calc(100%-60px)] top-[20px] flex justify-center">
+                        <Image src={logo} alt="logo" width={200} />
                     </div>
-                    <div className="w-2/4 flex items-center justify-end z-20">
+                    <div className="w-[100%] flex items-center justify-end z-20">
                         <FontAwesomeIcon
                             icon={faBars}
                             className={`${

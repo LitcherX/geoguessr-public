@@ -2,26 +2,20 @@
 import Link from "next/link";
 import React from "react";
 import useDarkMode from "../functions/useDarkmode";
+import logo from "@public/images/logo.png";
+import Image from "next/image";
 export default function Footer({ request }) {
     const [theme, setTheme] = useDarkMode();
     return (
         <div className="w-[1100px] mb-[15px] max-w-[100vw] pb-[15px] flex flex-row flex-wrap px-[15px]">
             <div className="flex flex-row flex-wrap gap-3 justify-evenly w-full">
-                <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-2 px-[2px]">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 480 480"
-                            width={30}
-                            height={30}
-                        >
-                            <path
-                                d="M242.11,9.06C151.88,7.91,77.35,81.2,77,171.45c0,1.08,0,2.16,0,3.25a117.09,117.09,0,0,0,16,56.61L227.71,463.86a14.19,14.19,0,0,0,24.58,0L386.71,231.68A119.06,119.06,0,0,0,403,172.42V172A163,163,0,0,0,242.11,9.06ZM240,251a88.07,88.07,0,1,1,88.07-88.07A88.07,88.07,0,0,1,240,251Z"
-                                className="fill-black, fill-text stroke-[30px] dark:stroke-transparent"
-                            />
-                        </svg>
-                        © 2025
-                    </div>
+                <div className="flex flex-col gap-3 items-center">
+                    <Link
+                        href="/"
+                        className="text-primary font-medium hover:cursor-pointer hover:text-primary-50 transition-all"
+                    >
+                        <Image src={logo} width={150} alt="logo" />
+                    </Link>
                     <div>
                         <div className="px-[10px] py-[5px] rounded-lg flex items-center gap-2 text-primary font-medium transition-colors duration-300 hover:cursor-pointer hover:bg-primary-30 group">
                             <svg
