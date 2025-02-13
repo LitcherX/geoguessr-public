@@ -101,7 +101,7 @@ export default function Footer({ request }) {
                     </div>
                     <div className="flex gap-6 flex-wrap justify-center">
                         <Link
-                            href="https://emergency-response-liberty-county.fandom.com/wiki/ER:LC_GeoGuesser"
+                            href="https://emergency-response-liberty-county.fandom.com"
                             target="blank"
                             className=" text-text-50 fill-text-50 stroke-text-50 hover:text-text hover:fill-text hover:stroke-text hover:cursor-pointer transition-all flex items-center gap-1"
                         >
